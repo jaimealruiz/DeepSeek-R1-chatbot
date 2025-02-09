@@ -1,11 +1,12 @@
 import streamlit as st
 import logging
+import os
 from openai import OpenAI
 
 # Configura el cliente OpenAI con OpenRouter
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    api_key= os.getenv("DEEPSEEK_API_KEY"),
 )
 
 logging.basicConfig(level=logging.INFO)
