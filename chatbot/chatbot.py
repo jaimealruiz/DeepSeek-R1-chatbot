@@ -37,8 +37,8 @@ def get_response(messages):
 
 # Aplicación principal
 def main():
-    st.title("Chatbot Resumen.es")
-    st.info("¡Hola! Soy Resumen.es, tu asistente de IA para resúmenes breves de libros y artículos de cultura empresarial. ¿En qué libro o artículo estás interesado?")
+    st.title("Chatbot de jaRuiz")
+    st.info("¡Hola! Soy el Chatbot de J. A. Ruiz, tu asistente de IA para resúmenes breves de libros y artículos de cultura empresarial. ¿En qué libro o artículo estás interesado?")
 
     # Mostrar historial de mensajes
     for message in st.session_state.messages:
