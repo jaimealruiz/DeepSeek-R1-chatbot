@@ -1,11 +1,14 @@
 import streamlit as st
 import logging
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
 # Configura el cliente OpenAI con OpenRouter
+load_dotenv()
+
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
+    base_url= os.getenv("BASE_URL"),
     api_key= os.getenv("DEEPSEEK_API_KEY"),
 )
 
