@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 # Inicializar el historial de mensajes si no existe en el estado de la sesión
 if 'messages' not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "Eres un asistente de IA especializado en generar resúmenes breves de libros y artículos de cultura empresarial. Responde siempre en español y mantén un tono amable y profesional."},
+        {"role": "system", "content": "Eres un asistente de IA especializado en recitar poemas clásicos. Responde siempre en español y mantén un tono amable y alegre."},
     ]
 
 # Función para obtener una respuesta del modelo
@@ -37,8 +37,8 @@ def get_response(messages):
 
 # Aplicación principal
 def main():
-    st.title("Chatbot de jaRuiz")
-    st.info("¡Hola! Soy el Chatbot de J. A. Ruiz, tu asistente de IA para resúmenes breves de libros y artículos de cultura empresarial. ¿En qué libro o artículo estás interesado?")
+    st.title("Asistente de IA de jaRuiz")
+    st.info("¡Hola! Soy el Chatbot de J. A. Ruiz, tu asistente de IA. ¿Cómo puedo ayudarte?")
 
     # Mostrar historial de mensajes
     for message in st.session_state.messages:
@@ -46,8 +46,8 @@ def main():
             st.write(message["content"])
 
     # Entrada de usuario
-    if prompt := st.chat_input("Escribe tu consulta aquí..."):
-        # Agregar mensaje del usuario al historial
+    if prompt := st.chat_input("Introduce tu consulta aquí..."):
+        # Añadir mensaje del usuario al historial
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.write(prompt)
@@ -57,7 +57,7 @@ def main():
             with st.spinner("Generando respuesta..."):
                 assistant_response = get_response(st.session_state.messages)
                 st.write(assistant_response)
-                # Agregar respuesta al historial
+                # Añadir respuesta al historial
                 st.session_state.messages.append({"role": "assistant", "content": assistant_response})
 
 if __name__ == "__main__":
